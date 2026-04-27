@@ -12,9 +12,10 @@ export default function Footer() {
         py: 2.5,
         px: 2,
         textAlign: "center",
-        borderTop: "1px solid rgba(0,184,255,0.36)",
-        background: "rgba(8,8,8,0.9)",
+        borderTop: (theme) => `1px solid ${theme.palette.divider}`,
+        background: "rgba(255,253,249,0.88)",
         backdropFilter: "blur(6px)",
+        boxShadow: (theme) => theme.customShadows.soft,
       }}
     >
       <Typography variant="body2" color="text.secondary">

@@ -154,10 +154,10 @@ export default function ContactPage() {
                     sx={{
                       width: 52,
                       height: 52,
-                      border: "1px solid rgba(0,184,255,0.36)",
-                      bgcolor: "rgba(255,255,255,0.03)",
+                      border: (theme) => `1px solid ${theme.palette.divider}`,
+                      bgcolor: "rgba(255,253,249,0.82)",
                       "&:hover": {
-                        bgcolor: "rgba(255,255,255,0.08)",
+                        bgcolor: "rgba(251,246,232,0.96)",
                       },
                     }}
                   >

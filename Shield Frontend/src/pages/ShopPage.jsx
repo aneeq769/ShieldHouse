@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getMediaUrl, getProducts } from "../lib/api";
 
-export default function ShopPage() {
+export function ShopSection() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -105,4 +105,8 @@ export default function ShopPage() {
       </Grid>
     </Stack>
   );
+}
+
+export default function ShopPage() {
+  return <ShopSection />;
 }

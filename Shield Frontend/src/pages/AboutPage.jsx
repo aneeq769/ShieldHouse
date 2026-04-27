@@ -43,10 +43,9 @@ export default function AboutPage() {
         sx={{
           p: { xs: 3, md: 4.5 },
           borderRadius: 4,
-          border: "1px solid rgba(0,184,255,0.36)",
-          background:
-            "linear-gradient(135deg, rgba(0,184,255,0.14), rgba(8,8,8,0.95) 55%, rgba(255,138,61,0.12))",
-          boxShadow: "0 20px 55px rgba(0,0,0,0.55)",
+          border: (theme) => `1px solid ${theme.palette.divider}`,
+          background: (theme) => theme.customGradients.highlight,
+          boxShadow: (theme) => theme.customShadows.medium,
         }}
       >
         <Grid container spacing={3} alignItems="stretch">
@@ -89,7 +88,8 @@ export default function AboutPage() {
                 mx: "auto",
                 display: "block",
                 borderRadius: "50%",
-                border: "1px solid rgba(0,184,255,0.36)",
+                border: (theme) => `1px solid ${theme.palette.divider}`,
+                boxShadow: (theme) => theme.customShadows.soft,
               }}
             />
           </Grid>
@@ -137,7 +137,7 @@ export default function AboutPage() {
                 <Typography variant="h6" sx={{ mb: 1.2 }}>
                   {section.title}
                 </Typography>
-                <Divider sx={{ mb: 1.4, borderColor: "rgba(0,184,255,0.36)" }} />
+                <Divider sx={{ mb: 1.4 }} />
                 <Typography color="text.secondary">{section.text}</Typography>
               </CardContent>
             </Card>

@@ -3,6 +3,7 @@ import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { ShopSection } from "./ShopPage";
 
 const runningLabel =
   "At Shield House, we craft premium custom award shields that make every achievement unforgettable.We deliver unique, high-quality designs for institutions, corporate events, and industries that value excellence.";
@@ -65,8 +66,9 @@ export default function HomePage() {
           position: "relative",
           overflow: "hidden",
           isolation: "isolate",
-          border: "1px solid rgba(0,184,255,0.36)",
+          border: (theme) => `1px solid ${theme.palette.divider}`,
           minHeight: { xs: 360, md: 530 },
+          boxShadow: (theme) => theme.customShadows.strong,
         }}
       >
         <Box
@@ -90,12 +92,11 @@ export default function HomePage() {
           sx={{
             position: "absolute",
             inset: 0,
-            background:
-              "linear-gradient(110deg, rgba(0,0,0,0.58) 0%, rgba(0,0,0,0.35) 45%, rgba(0,0,0,0.6) 100%)",
+            background: (theme) => theme.customGradients.heroOverlay,
           }}
         />
         <Box sx={{ position: "relative", zIndex: 1 }}>
-          <Typography variant="h3" sx={{ mb: 2 }}>
+          <Typography variant="h3" sx={{ mb: 2, color: "white" }}>
             Welcome to Shield House
           </Typography>
           <Typography
@@ -120,7 +121,7 @@ export default function HomePage() {
               component={Link}
               to="/shop"
               variant="contained"
-              color="secondary"
+              color="primary"
               startIcon={<ShoppingBagOutlinedIcon />}
             >
               Explore Shop
@@ -129,7 +130,16 @@ export default function HomePage() {
               component={Link}
               to="/contact"
               variant="outlined"
-              sx={{ color: "white", borderColor: "rgba(255,255,255,0.8)" }}
+              color="inherit"
+              sx={{
+                color: "white",
+                borderColor: "rgba(255,253,249,0.9)",
+                backgroundColor: "rgba(255,253,249,0.08)",
+                "&:hover": {
+                  borderColor: "rgba(255,253,249,0.98)",
+                  backgroundColor: "rgba(255,253,249,0.16)",
+                },
+              }}
               startIcon={<MailOutlineIcon />}
             >
               Contact Team
@@ -157,10 +167,10 @@ export default function HomePage() {
         sx={{
           overflow: "hidden",
           borderRadius: 1,
-          border: "1px solid rgba(0,184,255,0.36)",
-          background:
-            "linear-gradient(90deg, rgba(0,184,255,0.12), rgba(15,16,20,0.92) 20%, rgba(15,16,20,0.92) 80%, rgba(255,138,61,0.12))",
+          border: (theme) => `1px solid ${theme.palette.divider}`,
+          background: (theme) => theme.customGradients.banner,
           py: 3,
+          boxShadow: (theme) => theme.customShadows.soft,
         }}
       >
         <Box
@@ -189,7 +199,7 @@ export default function HomePage() {
                 fontFamily: "Novarese",
                 letterSpacing: "0.18em",
                 textTransform: "uppercase",
-                color: "rgba(255,255,255,0.9)",
+                color: "rgba(20,32,43,0.82)",
               }}
             >
               {runningLabel} • {runningLabel} • {runningLabel} •
@@ -202,10 +212,9 @@ export default function HomePage() {
         sx={{
           p: { xs: 3, md: 4 },
           borderRadius: 1,
-          border: "1px solid rgba(0,184,255,0.36)",
-          background:
-            "linear-gradient(135deg, rgba(0,184,255,0.12), rgba(17,18,22,0.94) 38%, rgba(255,138,61,0.14))",
-          boxShadow: "0 24px 60px rgba(0,0,0,0.28)",
+          border: (theme) => `1px solid ${theme.palette.divider}`,
+          background: (theme) => theme.customGradients.highlight,
+          boxShadow: (theme) => theme.customShadows.medium,
         }}
       >
         <Typography variant="h5" sx={{ mb: 1, textAlign: "center" }}>
@@ -226,7 +235,7 @@ export default function HomePage() {
                 sx={{
                   height: "100%",
                   textAlign: "center",
-                  background: "rgba(255,255,255,0.04)",
+                  background: "rgba(255,253,249,0.78)",
                 }}
               >
                 <CardContent sx={{ py: 4 }}>
@@ -249,6 +258,8 @@ export default function HomePage() {
           ))}
         </Grid>
       </Box>
+
+      <ShopSection />
     </Stack>
   );
 }

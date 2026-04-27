@@ -1,6 +1,7 @@
 import os
 from pathlib import Path
-
+from dotenv import load_dotenv
+load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -9,6 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
+print(SECRET_KEY)
 
 DEBUG = os.getenv('DJANGO_DEBUG', 'True').lower() == 'true'
 
@@ -65,10 +67,10 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('POSTGRES_DB', 'shield_backend'),
-        'USER': os.getenv('POSTGRES_USER', 'postgres'),
-        'PASSWORD': os.getenv('POSTGRES_PASSWORD', '1234'),
-        'PORT': os.getenv('POSTGRES_PORT', '5432'),
+        'NAME': os.getenv('POSTGRES_DB'),
+        'USER': os.getenv('POSTGRES_USER'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
+        'PORT': os.getenv('POSTGRES_PORT'),
     }
 }
 

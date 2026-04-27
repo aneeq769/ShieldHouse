@@ -5,7 +5,6 @@ import Footer from "./Footer";
 
 const navItems = [
   { label: "Home", path: "/" },
-  { label: "Shop", path: "/shop" },
   { label: "Contact", path: "/contact" },
   { label: "About", path: "/about" },
 ];
@@ -29,8 +28,7 @@ export default function MainLayout({ children }) {
           content: '""',
           position: "absolute",
           inset: 0,
-          background:
-            "radial-gradient(circle at 15% 10%, rgba(0,184,255,0.25), transparent 32%), radial-gradient(circle at 85% 20%, rgba(255,138,61,0.18), transparent 30%), radial-gradient(circle at 50% 100%, rgba(255,255,255,0.08), transparent 45%)",
+          background: (theme) => theme.customGradients.page,
           pointerEvents: "none",
         },
       }}
@@ -55,9 +53,9 @@ export default function MainLayout({ children }) {
                 px: { xs: 1, sm: 1 },
                 gap: { xs: 0.5, sm: 1 },
                 borderRadius: "999px",
-                bgcolor: "#0f1014",
-                border: "1px solid rgba(0,184,255,0.36)",
-                boxShadow: "0 10px 30px rgba(0,0,0,0.48)",
+                bgcolor: "rgba(255,253,249,0.88)",
+                border: (theme) => `1px solid ${theme.palette.divider}`,
+                boxShadow: (theme) => theme.customShadows.medium,
                 backdropFilter: "blur(6px)",
                 width: { xs: "100%", sm: "92%", md: "80%" },
                 maxWidth: "100%",
@@ -94,7 +92,7 @@ export default function MainLayout({ children }) {
                     }}
                   />
                 ) : (
-                  <Typography variant="body2" component="div" sx={{ color: "white", px: 1 }}>
+                  <Typography variant="body2" component="div" sx={{ color: "text.primary", px: 1 }}>
                     SH
                   </Typography>
                 )}
@@ -133,18 +131,18 @@ export default function MainLayout({ children }) {
                         textTransform: "uppercase",
                         fontFamily: "'Poppins', sans-serif",
                         lineHeight: 1.2,
-                        color: isActive ? "#fff" : "rgba(255,255,255,0.75)",
-                        bgcolor: isActive ? "rgba(0,184,255,0.16)" : "transparent",
+                        color: isActive ? "secondary.main" : "text.secondary",
+                        bgcolor: isActive ? "rgba(184,138,27,0.14)" : "transparent",
                         border: isActive
-                          ? "1px solid rgba(0,184,255,0.36)"
+                          ? (theme) => `1px solid ${theme.palette.divider}`
                           : "1px solid transparent",
                         whiteSpace: "nowrap",
                         transition: "all 0.25s ease",
                         "&:hover": {
                           bgcolor: isActive
-                            ? "rgba(0,184,255,0.22)"
-                            : "rgba(255,255,255,0.12)",
-                          color: "#fff",
+                            ? "rgba(184,138,27,0.2)"
+                            : "rgba(184,138,27,0.08)",
+                          color: "secondary.main",
                           transform: "translateY(-1px)",
                         },
                       }}

@@ -262,19 +262,19 @@ export default function AdminDashboardPage() {
                     borderRadius: 2,
                     cursor: "pointer",
                     border: selectedId === product.id
-                      ? "1px solid rgba(244,238,80,0.55)"
-                      : "1px solid rgba(0,184,255,0.36)",
+                      ? "1px solid rgba(184,138,27,0.42)"
+                      : (theme) => `1px solid ${theme.palette.divider}`,
                     background: selectedId === product.id
-                      ? "linear-gradient(135deg, rgba(244,238,80,0.12), rgba(255,255,255,0.04))"
-                      : "linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02))",
+                      ? "linear-gradient(135deg, rgba(184,138,27,0.18), rgba(255,253,249,0.98))"
+                      : "linear-gradient(145deg, rgba(255,253,249,0.98), rgba(248,243,234,0.95))",
                     boxShadow: selectedId === product.id
-                      ? "0 14px 30px rgba(0,0,0,0.24)"
-                      : "0 8px 20px rgba(0,0,0,0.14)",
+                      ? "0 18px 34px rgba(68, 52, 24, 0.14)"
+                      : "0 10px 24px rgba(68, 52, 24, 0.08)",
                     transition: "transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease",
                     "&:hover": {
                       transform: "translateY(-2px)",
-                      borderColor: "rgba(0,184,255,0.36)",
-                      boxShadow: "0 14px 28px rgba(0,0,0,0.22)",
+                      borderColor: "rgba(184,138,27,0.34)",
+                      boxShadow: "0 16px 30px rgba(68, 52, 24, 0.12)",
                     },
                   }}
                 >
@@ -431,8 +431,8 @@ export default function AdminDashboardPage() {
                     sx={{
                       minHeight: 180,
                       borderRadius: 2,
-                      border: "1px solid rgba(0,184,255,0.36)",
-                      bgcolor: "rgba(255,255,255,0.03)",
+                      border: (theme) => `1px solid ${theme.palette.divider}`,
+                      bgcolor: "rgba(255,253,249,0.84)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -496,7 +496,7 @@ export default function AdminDashboardPage() {
 
         <Stack spacing={2}>
           {inquiries.map((inquiry) => (
-            <Paper key={inquiry.id} sx={{ p: 2.5, bgcolor: "rgba(255,255,255,0.03)" }}>
+            <Paper key={inquiry.id} sx={{ p: 2.5, bgcolor: "rgba(255,253,249,0.86)" }}>
               <Stack spacing={1}>
                 <Stack
                   direction={{ xs: "column", md: "row" }}
